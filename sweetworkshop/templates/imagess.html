@@ -1,0 +1,7 @@
+<!-- templates/imagess.html -->
+<h1>Create Imagess Page</h1>
+<form method="imagess" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Submit New Imagess</button>
+</form>

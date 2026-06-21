@@ -1,0 +1,19 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1>Vyrib List</h1>
+
+    {% if vyrib_list %}
+    <ul>
+
+      {% for vyrib in vyrib_list %}
+      <li>
+        <a href="{{ vyrib.get_absolute_url }}">{{ vyrib.title }}</a> ({{book.vyrib}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>There are no vyrib in the library.</p>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Title: {{ vyrib.title }}</h1>
+
+  
+  <p><strong>Vyrib:</strong><a href="{% url 'vyrib-detail' product.vyrib.pk %}">{{product.vyrib }}</a></p>
+  <p><strong>Summary:</strong> {{ vyrib.summary }}</p>
+  <p><strong>VAGA:</strong> {{ vyrib.vaga }}</p>
+  <p><strong>Decor:</strong> {{ vyrib.decor }}</p>
+  <p><strong>Filing:</strong> {% for filing in vyrib.filing.all %} {{ genre }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+
+  <div style="margin-left:20px;margin-top:20px">
+    <h4>Copies</h4>
+
+    {% for copy in vyrib.vyribinstance_set.all %}
+    <hr>
+    <p class="{% if copy.status == 'a' %}text-success{% elif copy.status == 'd' %}text-danger{% else %}text-warning{% endif %}">{{ copy.get_status_display }}</p>
+    {% if copy.status != 'a' %}<p><strong>Due to be returned:</strong> {{copy.due_back}}</p>{% endif %}
+    <p><strong>Imprint:</strong> {{copy.imprint}}</p>
+    <p class="text-muted"><strong>Id:</strong> {{copy.id}}</p>
+    {% endfor %}
+  </div>
+{% endblock %}

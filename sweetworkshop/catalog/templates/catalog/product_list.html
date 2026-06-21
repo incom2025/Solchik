@@ -1,0 +1,21 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+    <h1> Product List</h1>
+
+    {% if product_list %}
+    <ul>
+
+      {% for product in product_list %}
+      <li>
+        <a href="{{ product.get_absolute_url }}">{{ product.title }}</a> ({{product.vyrib}})
+      </li>
+      {% endfor %}
+
+    </ul>
+    {% else %}
+      <p>Продуктів в каталозі нема.</p>
+    {% endif %}
+{% endblock %}
+
+
