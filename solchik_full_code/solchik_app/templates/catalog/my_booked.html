@@ -1,0 +1,2 @@
+{% extends 'base.html' %}
+{% block content %}<h1>Мої заброньовані позиції</h1>{% for i in instances %}<p>{{ i }}</p>{% empty %}<p>Немає позицій.</p>{% endfor %}{% endblock %}

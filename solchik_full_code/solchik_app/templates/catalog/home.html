@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="hero">
+  <h1>Кондитерська «Сольчик»</h1>
+  <p>Каталог десертів, CRM-заявки та інтелектуальна аналітика попиту.</p>
+</section>
+<section class="stats">
+  <div>Продуктів: <b>{{ product_count }}</b></div>
+  <div>Доступно: <b>{{ available_count }}</b></div>
+  <div>Заявок: <b>{{ order_count }}</b></div>
+</section>
+<div class="grid">
+{% for product in products %}
+  <article class="card">
+    {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.title }}">{% endif %}
+    <h3>{{ product.title }}</h3>
+    <p>{{ product.description|truncatewords:18 }}</p>
+    <a class="btn" href="{{ product.get_absolute_url }}" data-event="view_product" data-product="{{ product.title }}">Детальніше</a>
+  </article>
+{% empty %}
+  <p>Каталог ще порожній. Додайте продукти через Django Admin.</p>
+{% endfor %}
+</div>
+{% endblock %}

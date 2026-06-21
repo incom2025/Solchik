@@ -1,0 +1,32 @@
+{% load static %}
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Сольчик — кондитерська</title>
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+<header class="topbar">
+  <a class="logo" href="/">Solchik</a>
+  <nav>
+    <a href="/">Каталог</a>
+    <a href="/analytics/">Аналітика</a>
+    <a href="/admin/">Admin</a>
+  </nav>
+</header>
+<main class="container">
+  {% if messages %}{% for message in messages %}<div class="alert">{{ message }}</div>{% endfor %}{% endif %}
+  {% block content %}{% endblock %}
+</main>
+<footer class="footer">© Solchik Cake</footer>
+<script src="{% static 'js/events.js' %}"></script>
+</body>
+</html>

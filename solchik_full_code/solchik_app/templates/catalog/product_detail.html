@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<article class="product-detail">
+  {% if product.image %}<img src="{{ product.image.url }}" alt="{{ product.title }}">{% endif %}
+  <div>
+    <h1>{{ product.title }}</h1>
+    <p>{{ product.description }}</p>
+    <p><b>Вага:</b> {{ product.weight }}</p>
+    <p><b>Ціна:</b> {{ product.price }} грн</p>
+    <p><b>Перегляди:</b> {{ product.views }} | <b>Натискання замовлення:</b> {{ product.order_clicks }}</p>
+    <form method="post" action="{% url 'order_create' %}" class="form">{% csrf_token %}
+      {{ order_form.as_p }}
+      <button class="btn" type="submit" data-event="order_click" data-product="{{ product.title }}">Замовити</button>
+    </form>
+    <form method="post" action="{% url 'review_create' %}" class="form">{% csrf_token %}
+      {{ review_form.as_p }}
+      <button class="btn secondary" type="submit">Додати відгук</button>
+    </form>
+  </div>
+</article>
+<h2>Схожі вироби</h2>
+<div class="grid small">{% for item in similar %}<a href="{{ item.get_absolute_url }}">{{ item.title }}</a>{% endfor %}</div>
+{% endblock %}

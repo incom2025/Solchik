@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>solchik.cake — Торти на замовлення</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+</head>
+<body>
+<header class="header">
+  <div class="brand">Solchik Cake</div>
+  <nav><a href="#catalog">Каталог</a><a href="#contacts">Контакти</a></nav>
+</header>
+<section class="hero">
+  <h1>Авторські торти та десерти на замовлення</h1>
+  <p>Бенто-торти, весільні торти, капкейки та candy bar для особливих подій.</p>
+  <a class="btn" href="#catalog">Обрати десерт</a>
+</section>
+<section id="catalog" class="catalog">
+  <article class="item" data-product="Бенто-торт">
+    <h2>Бенто-торт</h2><p>Мінімалістичний торт для подарунку.</p>
+    <a class="btn order-btn" data-product="Бенто-торт" href="https://t.me/your_manager?start=product_bento&utm_source=site&utm_campaign=solchikcake">Замовити</a>
+  </article>
+  <article class="item" data-product="Весільний торт">
+    <h2>Весільний торт</h2><p>Індивідуальний дизайн під подію.</p>
+    <a class="btn order-btn" data-product="Весільний торт" href="https://t.me/your_manager?start=product_wedding&utm_source=site&utm_campaign=solchikcake">Замовити торт</a>
+  </article>
+  <article class="item" data-product="Candy Bar">
+    <h2>Candy Bar</h2><p>Набір десертів для свята.</p>
+    <a class="btn order-btn" data-product="Candy Bar" href="https://t.me/your_manager?start=product_candybar&utm_source=site&utm_campaign=solchikcake">Замовити Candy Bar</a>
+  </article>
+</section>
+<section id="contacts" class="contacts">
+  <h2>Контакти</h2>
+  <a class="social" data-social="instagram" href="https://instagram.com/your_page">Instagram</a>
+  <a class="social" data-social="telegram" href="https://t.me/your_manager">Telegram</a>
+</section>
+<script src="js/main.js"></script>
+</body>
+</html>
